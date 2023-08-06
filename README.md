@@ -54,7 +54,7 @@
 
 |        |     김다연     |     안준영     |     이은찬     |     임현성     |
 |:------:|:--------------:|:--------------:|:--------------:|:--------------:|
-|  Name  |  | Junyeong Ahn |  |  |
+|  Name  | Dayeon Kim | Junyeong Ahn | Eunchan Lee | Hyunsung Lim |
 | Github | [@dayeon1031](https://github.com/dayeon1031) | [@ahnjun0](https://github.com/ahnjun0) | [@Welsee](https://github.com/Welsee) | [@hsung3313](https://github.com/hsung3313) |
-|  Email  | @ | jyahn.IT@gmail.com | @ | @ |
-|  Role  | 팀장<br>Front, 디자인 | 기획, Back | Back | Front |
+|  Email  | rlaekdus1279@naver.com | jyahn.IT@gmail.com | eunchan28@naver.com | hsung3313@gmail.com |
+|  Role  | 팀장, Front, 디자인 | 기획, AI, Back | Back | Front |
