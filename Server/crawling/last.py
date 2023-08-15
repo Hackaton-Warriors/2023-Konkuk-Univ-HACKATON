@@ -1,12 +1,11 @@
 from newspaper import Article
 import requests
 from bs4 import BeautifulSoup
-
 #권한을 얻기위한 헤더
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"}
 
-url = input("링크를 입력하세요")
-
+# url = input()
+url = ""
 if "news.naver.com" in url :                    #네이버 뉴스를 크롤링이 안됨으로 별도의 과정이 필요
     
     response = requests.get(url, headers = headers)
@@ -25,8 +24,8 @@ if "news.naver.com" in url :                    #네이버 뉴스를 크롤링�
 
     print("\n[내용]\n")
     for article in articles:
-       article_text = article.get_text().strip()  # 요소 내 텍스트 추출
-       print(article_text)
+        article_text = article.get_text().strip()  # 요소 내 텍스트 추출
+        print(article_text)
 
 else :
     html = requests.get(url, headers=headers).text          #naver기사가 아니라면 newspaper3k 패키지를 사용해 제모그 기사 추출
@@ -36,10 +35,10 @@ else :
     article.parse()
 
     # 기사 제목을 출력
-    print('기사 제목:')
+    # print('기사 제목:')
     print(article.title)
     print('')
 
     # 기사 내용을 출력
-    print('기사 내용:')
+    # print('기사 내용:')
     print(article.text)
