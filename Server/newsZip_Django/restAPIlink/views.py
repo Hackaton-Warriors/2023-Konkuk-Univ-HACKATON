@@ -19,12 +19,12 @@ from rest_framework.response import Response
 def check_string(request):
     data = request.data
     url = data.get('value')
-    title = link(url)
+    title, content = link(url)
     abc = "hello"
     return Response(
         {
             "title" : title,
-            "content" : abc
+            "content" : content
         }, status=status.HTTP_200_OK)
     
 
