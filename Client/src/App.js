@@ -19,13 +19,14 @@ function SettingsBox({ changeBackground, hideSettingsModal }) {
     <div className="settings-screen">
       <div className="settings-modal">
         <div className="settings-box">
+        <div className="settings-form">
           <div className="settings-header">Settings</div>
-          <div className="settings-form">
+          
             <h3>Choose a background:</h3>
             <div>
-              <img src="image1.jpg" alt="Background 1" onClick={() => changeBackground('image1.jpg')} />
-              <img src="image2.jpg" alt="Background 2" onClick={() => changeBackground('image2.jpg')} />
-              <img src="image3.jpg" alt="Background 3" onClick={() => changeBackground('image3.jpg')} />
+              <img src="sample_back1.jpg" alt="배경1" onClick={() => changeBackground('sample_back1.jpg')} />
+              <img src="sample_back2.jpg" alt="배경2" onClick={() => changeBackground('sample_back2.jpg')} />
+              <img src="sample_back3.jpg" alt="배경3" onClick={() => changeBackground('sample_back3.jpg')} />
             </div>
             <button className="close-settings" onClick={hideSettingsModal}>Close</button>
           </div>
@@ -126,7 +127,7 @@ function App() {
   const [hiddenUserInfoVisible, setHiddenUserInfoVisible] = useState(false);
   const [summaryTitle, setSummaryTitle] = useState('');
   const [summaryContent, setSummaryContent] = useState('');
-  const [backgroundImage, setBackgroundImage] = useState('default.jpg'); // 기본 배경 이미지
+  const [backgroundImage, setBackgroundImage] = useState('Searchs_006.png'); // 기본 배경 이미지
   const [showSettings, setShowSettings] = useState(false); // 설정 상자의 가시성
 
   const showSettingsModal = () => {
