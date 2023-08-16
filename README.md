@@ -1,10 +1,11 @@
 # 🗞️ '뉴스.zip' - 뉴스 요약 서비스
 
 
-![img](https://github.com/brave-people/Dev-Event/blob/master/static/title-v3-lg.png?raw=true)
+<img src="./img/banner.png" alt="Main Screen" />
 
 </div>
-<br />
+<br>
+
 [![Build Status](https://img.shields.io/badge/status-Developing-green)](https://github.com/Hackaton-Warriors/2023-Konkuk-Univ-HACKATON/)
 
 <!-- ![License]() -->
@@ -56,7 +57,8 @@ MZ세대를 위한 쉽고 편리한 뉴스 요약 서비스
 
 ## How To Use
 
-1. Log in, Sign up 버튼을 통해 로그인 및 회원가입을 합니다.
+1. [![Login](https://img.shields.io/badge/Log%20In-gray)](#) [![SignUp](https://img.shields.io/badge/Sign%20Up-gray)](#)
+ 버튼을 통해 로그인 및 회원가입을 합니다.
 
 2. 검색창에 요약을 원하는 뉴스 기사의 링크를 검색합니다.
    
@@ -86,7 +88,7 @@ MZ세대를 위한 쉽고 편리한 뉴스 요약 서비스
     
   - 편리함을 추구하며 모바일과 친숙하다는 특징을 가진 MZ 세대 겨냥
     
-  - 쉽고 빠르게 필요한 정보를 빠르게 찾을 수 있다는 장점
+  - 쉽고 빠르게 필요한 정보를 찾을 수 있다는 장점
 
     
 ### Built With
