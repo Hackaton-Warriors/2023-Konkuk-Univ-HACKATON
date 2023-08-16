@@ -45,11 +45,10 @@
   - 쉽고 빠르게 필요한 정보를 빠르게 찾을 수 있다는 장점
 ### Built With
 **프론트**: 
-`React`
-
+* [![React][React.js]][React-url]
 **벡**: 
-`Django`
-
+* [![Django][Django][Django-url]
+* 
 ## Usage
 
 <!-- ROADMAP -->
