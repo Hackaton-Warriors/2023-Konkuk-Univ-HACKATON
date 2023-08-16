@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from restAPIlink.views import check_string
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('api/check_string/', check_string, name='check_string_api'),
 ]
