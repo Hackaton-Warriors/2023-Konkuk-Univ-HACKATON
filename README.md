@@ -62,7 +62,7 @@ MZ세대는 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=f
 의 릴스, [![YouTube](https://img.shields.io/badge/-YouTube-FF0000?style=flat&logo=YouTube&logoColor=white)](#)
 의 쇼츠 등 짧지만 핵심적인 내용을 추구하는 경향이 있습니다.
 
-하지만 뉴스 기사들은 내용이 길고, 핵심 내용뿐만 아니라 부가적인 내용도 적혀있어서 MZ세대가 뉴스를 친숙하게 여기기엔 이러한 큰 장벽이 존재합니다.
+하지만 뉴스 기사들은 내용이 길고, 핵심 내용뿐만 아니라 부가적인 내용도 적혀있어 MZ세대가 뉴스를 친숙하게 여기기엔 이러한 큰 장벽이 존재합니다.
 
 따라서 저희는 MZ세대의 mobile-friendly 한 장점을 활용하면서, 뉴스 내용을 핵심적인 내용으로 요약함으로써 MZ세대의 단점까지 보완해 주는 웹 사이트를 개발했습니다.
 
