@@ -14,6 +14,24 @@ function HiddenSummary({ title, content, closeSummary }) {
   );
 }
 
+function HiddenRecent({ recentUrls, closeRecent }) {
+  return (
+    <div className="hidden-recent">
+      <div className="hidden-recent-content">
+        <p>Hidden recent Content</p>
+        <div className="recent-list">
+          {recentUrls.slice(0).reverse().map((url, index) => (
+            <a key={index} className="recent-item" target='_blank' href={url}>
+              {url}
+            </a>
+          ))}
+        </div>
+      </div>
+      <button className="close-recent-button" onClick={closeRecent}>Close</button>
+    </div>
+  );
+}
+
 function HiddenQnA({ closeQnA }) {
   const [question, setQuestion] = useState(''); // 1. 질문 상태 추가
   const [answer, setAnswer] = useState('Answer will appear here.'); // 응답 상태 추가
@@ -66,34 +84,8 @@ function HiddenQnA({ closeQnA }) {
   );
 }
 
-function HiddenRecent({ closeRecent }) {
 
-  const recentItems = [
-    { title: 'Example 1', url: 'https://www.example.com/1' },
-    { title: 'Example 2', url: 'https://www.example.com/2' },
-    { title: 'Example 3', url: 'https://www.example.com/3' },
-    { title: 'Example 4', url: 'https://www.example.com/4' },
-    { title: 'Example 5', url: 'https://www.example.com/5' },
-  ];
 
-  return (
-    <div className="hidden-recent">
-      <div className="hidden-recent-content">
-        <p>Hidden recent Content</p>
-        <div className="recent-list">
-          {recentItems.map((item, index) => (
-            <div key={index} className="recent-item">
-              <a href={item.url} target="_blank" rel="noopener noreferrer">
-                {item.title}<br/>{item.url}
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-      <button className="close-recent-button" onClick={closeRecent}>Close</button>
-    </div>
-  );
-}
 
 function App() {
   const [hiddenSummaryVisible, setHiddenSummaryVisible] = useState(false);
@@ -104,7 +96,7 @@ function App() {
   const [hiddenUserInfoVisible, setHiddenUserInfoVisible] = useState(false);
   const [summaryTitle, setSummaryTitle] = useState('');
   const [summaryContent, setSummaryContent] = useState('');
-
+  const [recentUrls, setRecentUrls] = useState(["url1", "url2", "url3", "url4", "url5"]);
   // 이벤트 핸들러 함수들
   const openHiddenSummary = () => {
     setHiddenSummaryVisible(true);
@@ -135,6 +127,10 @@ function App() {
   const handleSearchKeyDown = (event) => {
     if (event.key === 'Enter') {
       openHiddenSummary();
+      const url = event.target.value;
+      const updatedUrls = [...recentUrls, url];
+      updatedUrls.shift();
+      setRecentUrls(updatedUrls);
       handleSearch("http://127.0.0.1:8000/api/check_string/");
     }
   };
@@ -160,17 +156,17 @@ function App() {
   };
   
   const handleSearch = async (link) => {
+    openHiddenSummary();
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/check_string/', { link });
-      
       setSummaryTitle(response.data.title);
       setSummaryContent(response.data.content);
-      
-      openHiddenSummary();
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
+  
+  
 
   const scrollPageTop = () => {
     window.scrollTo({
@@ -178,7 +174,6 @@ function App() {
       behavior: 'smooth'
     });
   };
-
   return (
     <div className="My02">
       <div className="top-bar">
@@ -191,7 +186,18 @@ function App() {
         <h1 className="title">WHAT DO YOU WANT TO ZIP?</h1>
         <div className="search-container">
           <input className="search-input" type="text" placeholder="Copy and paste the link..." onKeyDown={handleSearchKeyDown} />
-          <button className="search-button" onClick={() => {openHiddenSummary(); handleSearch("http://127.0.0.1:8000/api/check_string/")}} type="button">
+          <button className="search-button"
+            onClick={(event) => {
+              const clickEvent = event; // 클릭 이벤트를 저장하는 변수
+              openHiddenSummary();
+              const url = document.querySelector(".search-input").value;
+              const updatedUrls = [...recentUrls, url];
+              updatedUrls.shift();
+              setRecentUrls(updatedUrls);
+              handleSearch(clickEvent, "http://127.0.0.1:8000/api/check_string/");
+            }}
+            type="button"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
             </svg>
@@ -219,7 +225,7 @@ function App() {
         </div>
         {hiddenSummaryVisible && <HiddenSummary title={summaryTitle} content={summaryContent} closeSummary={closeHiddenSummary} />}
         {hiddenQnAVisible && <HiddenQnA closeQnA={closeHiddenQnA} />}
-        {hiddenRecentVisible && <HiddenRecent closeRecent={closeHiddenRecent} />}
+        {hiddenRecentVisible && <HiddenRecent recentUrls={recentUrls} closeRecent={closeHiddenRecent} />}
       </div>
       {showLogin && (
         <div className="login-screen">
