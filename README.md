@@ -55,6 +55,7 @@ MZ세대를 위한 쉽고 편리한 뉴스 요약 서비스
 **WebSite Logo**
 </div>
 
+
 **"뉴스에 덜 친숙한 MZ세대에게 사회적 이슈들에 대해 쉽게 접할 수 있도록 도움을 주고자 시작한 프로젝트입니다."**
 
 MZ세대는 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat&logo=Instagram&logoColor=white)](#)
