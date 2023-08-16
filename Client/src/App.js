@@ -64,7 +64,7 @@ function HiddenQnA({ closeQnA }) {
   // 3. 백엔드 서버로 질문을 보내고 응답을 받아오는 로직
   const fetchAnswer = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/get_answer/', { question });
+      const response = await axios.post('http://127.0.0.1:8000/api/qna/', { question });
       setAnswer(response.data.answer); // 서버에서 받아온 응답을 상태에 저장
     } catch (error) {
       console.error("Error fetching answer:", error);
