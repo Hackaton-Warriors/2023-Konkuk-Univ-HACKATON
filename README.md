@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/badge/status-Developing-green)](https://github.com/Hackaton-Warriors/2023-Konkuk-Univ-HACKATON/)
 
 <!-- ![License]() -->
-## <img src="https://cdn-icons-png.flaticon.com/128/3825/3825043.png" alt="Icon" width="30"/> 해커톤 전사들 <img src="https://cdn-icons-png.flaticon.com/128/3825/3825043.png" alt="Icon" width="30"/>
+## <img src="https://cdn-icons-png.flaticon.com/128/7718/7718598.png" alt="Icon" width="30"/> 해커톤 전사들 <img src="https://cdn-icons-png.flaticon.com/128/7718/7718598.png" alt="Icon" width="30"/>
 
 2023 건국대학교 해커톤 '해커톤 전사들' 팀 (김다연, 안준영, 이은찬, 임현성)
 
