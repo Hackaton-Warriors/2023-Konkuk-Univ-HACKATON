@@ -3,10 +3,12 @@
 [![Build Status](https://img.shields.io/badge/status-Developing-green)](https://github.com/Hackaton-Warriors/2023-Konkuk-Univ-HACKATON/)
 
 <!-- ![License]() -->
+## <img src="https://cdn-icons-png.flaticon.com/128/3825/3825043.png" alt="Icon" width="30"/> 해커톤 전사들 <img src="https://cdn-icons-png.flaticon.com/128/3825/3825043.png" alt="Icon" width="30"/>
 
 2023 건국대학교 해커톤 '해커톤 전사들' 팀 (김다연, 안준영, 이은찬, 임현성)
 
-주제 : MZ세대
+
+프로젝트명 : MZ세대를 위한 쉽고 편리한 뉴스 요약 서비스
 
 <!-- TABLE OF CONTENTS -->
 
@@ -27,6 +29,7 @@
   </ol>
 </details>
 <!-- ABOUT THE PROJECT -->
+
 
 ## About The Project
 
@@ -64,7 +67,9 @@
 - **Settings**: 배경화면 및 뭐 바꿀수 있다~~~~(나중에수정).
 
 
-## **서비스 소개: News.Zip**
+## 서비스 소개: "News.Zip" <img src="https://cdn-icons-png.flaticon.com/128/6861/6861248.png" alt="Icon" width="29">
+
+
 
 - **Description**: MZ세대를 위한 개인적이고 빠른 뉴스 요약 서비스
   
