@@ -22,6 +22,9 @@ def check_string(request):
     url = data.get('value')
     title, content = link(url)
     
+    with open("./config/content.txt", "w") as f:
+        f.write(title + "\n" + content)
+
     short_content = model_(content)
     return Response(
         {
