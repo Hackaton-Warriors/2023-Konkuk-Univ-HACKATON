@@ -6,51 +6,38 @@ const IMAGES = {
   BACKGROUND_1: 'sample_back1.png',
   BACKGROUND_2: 'sample_back2.png',
   BACKGROUND_3: 'sample_back3.png',
+  BACKGROUND_4: 'sample_back4.png'
 };
-
 
 function HiddenSummary({ title, content, closeSummary }) {
   return (
     <div className="hidden-summary">
       <div className="hidden-summary-content">
-        <p style={{fontSize:"30px", fontWeight:"bold"}}>{title}</p>
-        <p style={{fontSize:"20px"}}>{content}</p>
+        <p style={{fontSize:"40px", fontWeight:"bold"}}>{title}</p>
+        <p style={{fontSize:"25px"}}>{content}</p>
       </div>
       <button className="close-summary-button" onClick={closeSummary}>Close</button>
     </div>
   );
 }
 
-function SettingsBox({ changeBackground, hideSettingsModal }) {
+function HiddenRecent({ recentUrls, closeRecent }) {
   return (
-    <div className="settings-screen">
-      <div className="settings-modal">
-        <div className="settings-box">
-        <div className="settings-form">
-          <div className="settings-header">Settings</div>
-          
-            <h3>Choose a background:</h3>
-            <div>
-            <button className="bg-btn" onClick={() => changeBackground("sample_back1.png")}>
-                <img src={"sample_back1.png"} alt="배경1" />
-            </button>
-            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_2)}>
-                <img src={IMAGES.BACKGROUND_2} alt="배경2" />
-            </button>
-            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_3)}>
-                <img src={IMAGES.BACKGROUND_3} alt="배경3" />
-            </button>
-
-
-            </div>
-            <button className="close-settings" onClick={hideSettingsModal}>Close</button>
-          </div>
+    <div className="hidden-recent">
+      <div className="hidden-recent-content">
+        <p style={{padding:"1%", margin:"0.2%"}}>Recent Search Histories</p>
+        <div className="recent-list">
+          {recentUrls.slice(0).reverse().map((url, index) => (
+            <a key={index} className="recent-item" target='_blank' href={url}>
+              {url}
+            </a>
+          ))}
         </div>
       </div>
+      <button className="close-recent-button" onClick={closeRecent}>Close</button>
     </div>
   );
 }
-
 
 function HiddenQnA({ closeQnA }) {
   const [question, setQuestion] = useState(''); // 1. 질문 상태 추가
@@ -104,31 +91,30 @@ function HiddenQnA({ closeQnA }) {
   );
 }
 
-function HiddenRecent({ closeRecent }) {
-
-  const recentItems = [
-    { title: 'Example 1', url: 'https://www.example.com/1' },
-    { title: 'Example 2', url: 'https://www.example.com/2' },
-    { title: 'Example 3', url: 'https://www.example.com/3' },
-    { title: 'Example 4', url: 'https://www.example.com/4' },
-    { title: 'Example 5', url: 'https://www.example.com/5' },
-  ];
-
+function SettingsBox({ changeBackground, hideSettingsModal }) {
   return (
-    <div className="hidden-recent">
-      <div className="hidden-recent-content">
-        <p>Hidden recent Content</p>
-        <div className="recent-list">
-          {recentItems.map((item, index) => (
-            <div key={index} className="recent-item">
-              <a href={item.url} target="_blank" rel="noopener noreferrer">
-                {item.title}<br/>{item.url}
-              </a>
+    <div className="settings-screen">
+      <div className="settings-modal">
+        <div className="settings-box">
+          <p style={{fontSize:"60px", fontWeight:"bold", margin:"2%"}}>Settings</p>         
+          <p style={{fontSize:"30px", margin:"1%"}}>Choose a background</p>
+          <div className="bg-box">
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_1)}>
+                <img src={IMAGES.BACKGROUND_1} alt="bg1" />
+            </button>
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_2)}>
+                <img src={IMAGES.BACKGROUND_2} alt="bg2" />
+            </button>
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_3)}>
+                <img src={IMAGES.BACKGROUND_3} alt="bg3" />
+            </button>
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_4)}>
+                <img src={IMAGES.BACKGROUND_4} alt="bg4" />
+            </button>
             </div>
-          ))}
-        </div>
+            <button className="close-settings" onClick={hideSettingsModal}>Close</button>
+          </div>
       </div>
-      <button className="close-recent-button" onClick={closeRecent}>Close</button>
     </div>
   );
 }
@@ -142,22 +128,9 @@ function App() {
   const [hiddenUserInfoVisible, setHiddenUserInfoVisible] = useState(false);
   const [summaryTitle, setSummaryTitle] = useState('');
   const [summaryContent, setSummaryContent] = useState('');
-  const [backgroundImage, setBackgroundImage] = useState('Searchs_006.png'); // 기본 배경 이미지
+  const [recentUrls, setRecentUrls] = useState([undefined, undefined, undefined, undefined, undefined]);
+  const [backgroundImage, setBackgroundImage] = useState('sample_back4.png'); // 기본 배경 이미지
   const [showSettings, setShowSettings] = useState(false); // 설정 상자의 가시성
-
-  const showSettingsModal = () => {
-    setShowSettings(true);
-  };
-  
-  const hideSettingsModal = () => {
-    setShowSettings(false);
-  };
-
-  const changeBackground = (image) => {
-    setBackgroundImage(image);
-    hideSettingsModal();
-  };
-  
   // 이벤트 핸들러 함수들
   const openHiddenSummary = () => {
     setHiddenSummaryVisible(true);
@@ -188,6 +161,10 @@ function App() {
   const handleSearchKeyDown = (event) => {
     if (event.key === 'Enter') {
       openHiddenSummary();
+      const url = event.target.value;
+      const updatedUrls = [...recentUrls, url];
+      updatedUrls.shift();
+      setRecentUrls(updatedUrls);
       handleSearch("http://127.0.0.1:8000/api/check_string/");
     }
   };
@@ -207,19 +184,17 @@ function App() {
   
   const scrollPageQnA = () => {
     window.scrollTo({
-      top: window.innerHeight * 0.4, // 화면 높이의 30% 아래로 스크롤
+      top: window.innerHeight * 0.38,
       behavior: 'smooth'
     });
   };
   
   const handleSearch = async (link) => {
+    openHiddenSummary();
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/check_string/', { link });
-      
       setSummaryTitle(response.data.title);
       setSummaryContent(response.data.content);
-      
-      openHiddenSummary();
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -232,7 +207,22 @@ function App() {
     });
   };
 
+  const showSettingsModal = () => {
+    setShowSettings(true);
+  };
+  
+  const hideSettingsModal = () => {
+    setShowSettings(false);
+  };
+
+  const changeBackground = (image) => {
+    setBackgroundImage(image);
+    hideSettingsModal();
+  };
+
+
   return (
+    
     <div className="My02" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="top-bar">
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -244,7 +234,18 @@ function App() {
         <h1 className="title">WHAT DO YOU WANT TO ZIP?</h1>
         <div className="search-container">
           <input className="search-input" type="text" placeholder="Copy and paste the link..." onKeyDown={handleSearchKeyDown} />
-          <button className="search-button" onClick={() => {openHiddenSummary(); handleSearch("http://127.0.0.1:8000/api/check_string/")}} type="button">
+          <button className="search-button"
+            onClick={(event) => {
+              const clickEvent = event; // 클릭 이벤트를 저장하는 변수
+              openHiddenSummary();
+              const url = document.querySelector(".search-input").value;
+              const updatedUrls = [...recentUrls, url];
+              updatedUrls.shift();
+              setRecentUrls(updatedUrls);
+              handleSearch(clickEvent, "http://127.0.0.1:8000/api/check_string/");
+            }}
+            type="button"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
             </svg>
@@ -253,7 +254,7 @@ function App() {
         <div className="menu-container">
           <span className="menu1" onClick={() => {openHiddenSummary(); scrollPageTop();}}>News Summary</span>
           <span className="menu2" onClick={() => { openHiddenQnA(); scrollPageQnA();}}>QnA with AI</span>
-          <span className="menu3" onClick={() => {openHiddenRecent(); scrollPageTop();}}>Recent Summaries</span>
+          <span className="menu3" onClick={() => {openHiddenRecent(); scrollPageTop();}}>Search Histories</span>
           <span className="menu4" onClick={showSettingsModal}>Settings</span>
 
         </div>
@@ -273,7 +274,7 @@ function App() {
         </div>
         {hiddenSummaryVisible && <HiddenSummary title={summaryTitle} content={summaryContent} closeSummary={closeHiddenSummary} />}
         {hiddenQnAVisible && <HiddenQnA closeQnA={closeHiddenQnA} />}
-        {hiddenRecentVisible && <HiddenRecent closeRecent={closeHiddenRecent} />}
+        {hiddenRecentVisible && <HiddenRecent recentUrls={recentUrls} closeRecent={closeHiddenRecent} />}
         {showSettings && <SettingsBox changeBackground={changeBackground} hideSettingsModal={hideSettingsModal} />}
       </div>
       {showLogin && (
