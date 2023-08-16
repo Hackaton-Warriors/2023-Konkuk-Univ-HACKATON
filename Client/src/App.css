@@ -132,9 +132,9 @@
 }
 
 .foot-logo {
-  width: 300px; /* 원하는 너비로 설정 */
-  height: 100px; /* 원하는 높이로 설정 */
-  object-fit: contain; /* 이미지의 원본 비율을 유지하며 적절한 크기로 조절 */
+  width: 300px;
+  height: 100px;
+  object-fit: contain;
   position: relative;
   top: 15px;
   left: 15px;
@@ -320,7 +320,7 @@
 .login-box {
   position: relative;
   background-color: rgba(255,255,255,0.8);
-  width: 30vw;
+  width: 25vw;
   height: 30vh;
   border-radius: 8px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
