@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
-
 function HiddenSummary({ closeSummary }) {
   return (
     <div className="hidden-summary">
@@ -16,11 +15,28 @@ function HiddenSummary({ closeSummary }) {
 }
 
 function HiddenRecent({ closeRecent }) {
+
+  const recentItems = [
+    { title: 'Example 1', url: 'https://www.example.com/1' },
+    { title: 'Example 2', url: 'https://www.example.com/2' },
+    { title: 'Example 3', url: 'https://www.example.com/3' },
+    { title: 'Example 4', url: 'https://www.example.com/4' },
+    { title: 'Example 5', url: 'https://www.example.com/5' },
+  ];
+
   return (
     <div className="hidden-recent">
       <div className="hidden-recent-content">
-        <h2>Hidden recent Content</h2>
-        <p>This is a hidden recent window that appears when you click on "Recent Summeries".</p>
+        <p>Hidden recent Content</p>
+        <div className="recent-list">
+          {recentItems.map((item, index) => (
+            <div key={index} className="recent-item">
+              <a href={item.url} target="_blank" rel="noopener noreferrer">
+                {item.title}<br/>{item.url}
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
       <button className="close-recent-button" onClick={closeRecent}>Close</button>
     </div>
@@ -31,9 +47,9 @@ function App() {
   const [hiddenSummaryVisible, setHiddenSummaryVisible] = useState(false);
   const [hiddenRecentVisible, setHiddenRecentVisible] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const [showButtons, setShowButtons] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [hiddenUserInfoVisible, setHiddenUserInfoVisible] = useState(false);
+  // 이벤트 핸들러 함수들
   const openHiddenSummary = () => {
     setHiddenSummaryVisible(true);
     setHiddenRecentVisible(false);
@@ -64,24 +80,26 @@ function App() {
 
   const hideLoginModal = () => {
     setShowLogin(false);
+    setHiddenUserInfoVisible(true);
   };
 
   const handleLogin = () => {
     setIsLoggedIn(true);
   }
-
+  
   const scrollPageBottom = () => {
     window.scrollTo({
       top: document.body.scrollHeight,
       behavior: 'smooth'
     });
   };
+
   return (
     <div className="My02">
       <Router>
         <div className="top-bar">
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <button style={{visibility: isLoggedIn ? 'hidden' : 'visible'}} onClick={showLoginModal} className="login-btn">Log in</button>
+            <button style={{visibility: isLoggedIn ? 'hidden' : 'visible'}} onClick={showLoginModal} className="login-btn">Login</button>
             <button style={{visibility: isLoggedIn ? 'hidden' : 'visible'}} onClick={showLoginModal} className="signup-btn">Sign up</button>
         </div>
         <div className="content">
@@ -131,27 +149,29 @@ function App() {
         </div>
         <Routes>
           <Route path="/login" element={
-            <div className="login-container">    
+            <div className="login-container">
             </div>  
           } />
         </Routes>
+        
         {showLogin && (
           <div className="login-screen"> 
             <div className="login-modal">
               <div className="login-box">
-              <div className="login-header">Log in</div>
+              <div className="login-header">Login</div>
                 <div className="login-form">
                     <input type="text" placeholder="ID" className="login-input" />
                     <input type="password" placeholder="Password" className="login-input" />
                     <button onClick={() => {
                         handleLogin();
                         hideLoginModal();
-                    }} className="submit-login">Submit</button>
+                    }} className="submit-login">Submit</button> 
                 </div>
               </div>
             </div>
           </div>
   )}
+
       </div>
     </Router>
   </div>

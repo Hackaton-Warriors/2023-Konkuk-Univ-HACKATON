@@ -1,3 +1,4 @@
+/* My02 클래스 스타일 */
 .My02 {
   background: url('Searchs_006.png') center/cover no-repeat fixed;
   width: 100vw;
@@ -9,13 +10,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* 내용 컨테이너 스타일 */
 .content {
   margin-top: 20vh;
   width:70vw;
-  text-align: center; 
+  text-align: center; /* 원하는 만큼 조정 가능 */
 }
 
-
+/* 제목 스타일 */
 .title {
   font-size: 40px;
   font-weight: bold;
@@ -25,7 +27,7 @@
   padding: 10px;
 }
 
-
+/* 검색창 스타일 */
 .search-container {
   display: flex;
   align-items: center;
@@ -45,25 +47,25 @@
   align-items: center;
 }
 
-
+/* 검색창 버튼 스타일 */
 .search-button {
-  background-color: #000; 
+  background-color: #000; /* 검색창과 같은 배경색 */
   border: none;
   border-radius: 0 10px 10px 0;
   cursor: pointer;
-  padding: 23px 15px; 
+  padding: 23px 15px; /* 버튼의 너비를 늘림 */
   display: flex;
   align-items: center;
 }
 
 .search-button svg {
-  fill: #fff; 
+  fill: #fff; /* 아이콘 색상을 흰색으로 설정 */
   width: 20px;
   height: 20px;
   transition: all 0.2s ease-out, color 0.2s ease-out;
 }
 
-
+/* 검색 버튼에 호버 효과 */
 .search-button:hover {
   background-color: #222; /* 버튼 배경색을 어둡게 변경 */
 }
@@ -87,7 +89,7 @@
   font-size: 16px;
   font-family: 'Helvetica', sans-serif;
   display: inline-block;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.3);
   padding: 0 20px;
   line-height: 32px;
   color: #fff;
@@ -192,8 +194,8 @@
 .close-recent-button {
   position: relative;
   width: 15vw;
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -217,20 +219,23 @@
 }
 .close-summary-button:hover,
 .close-QnA-button:hover,
-.QnA-button:hover {
+.close-recent-button:hover {
   background-color: #222;
+  color: #fff;
 }
 
 .hidden-recent {
   position: relative;
   background: rgba(0, 0, 0, 0);
-  padding: 20px;
+  padding: 10px;
+  font-weight: bold;
 }
 
 .hidden-recent-content {
   background-color: rgba(255,255,255,1);
   min-height: 20vw;
-  padding: 20px;
+  padding-top: 3px;
+  padding-left: 25px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -249,9 +254,9 @@
 .hidden-QnA-content {
   position: relative;
   width: 70vw;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,0.8);
   min-height: 5vw;
-  padding: 20px;
+  padding: 5px 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: left;
@@ -261,6 +266,7 @@
   display: flex;
   width: 100vw;
   height: 5vh;
+  background-color: rgba(0,0,0,0.6);
   position: absolute;  /* 화면 최상단에 고정 */
   top: 0;
   left: 0;
@@ -271,18 +277,17 @@
 }
 
 .login-btn, .signup-btn {
-  margin: 10px 10px;
+  margin: 0px 10px;
   padding: 5px 10px;
-  border: 1px solid rgb(170, 170, 170);
-  background-color: #ffffff; /* 원하시는 색으로 변경 가능 */
-  color: rgb(0, 0, 0);
+  border: 0;
+  background-color: rgba(0, 0, 0, 0); /* 원하시는 색으로 변경 가능 */
+  color: #fff;
   cursor: pointer;
   border-radius: 5px;
   min-width:70%;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   font-family: 'Helvetica', sans-serif;
-  visibility: visible;
 
 }
 
@@ -320,27 +325,94 @@
 }
 
 .login-box {
-  background-color: white;
-  padding: 100px;
+  position: relative;
+  background-color: rgba(255,255,255,0.8);
+  width: 30vw;
+  height: 30vh;
   border-radius: 8px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  max-width: 800px;
-  width: 90%;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
 }
+
+
 .login-header {
+  position: relative;
+  margin-top: 15%;
+  text-align: center;
   font-weight: bold;
-  margin-bottom: 40px;
   font-size: 30px;
+}
+
+.login-form {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .login-input {
   display: block; /* 입력 필드를 각각 다른 줄에 표시 */
-  width: 100%;
-  padding: 10px 0;
-  border: none;
-  border-bottom: 1px solid #000;
-  margin: 10px 0;
+  width: 50%;
+  padding: 15px;
+  margin-top: 5%;
+  border-radius: 5px;
+  background-color: rgba(30, 30, 30, 1);
+  color: #fff;
   outline: none;
-  background-color: transparent;
+}
+
+.recent-list {
+  margin-top: 5px;
+  height: 10%;
+  width: 95%;
+  font-weight: normal;
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+  margin-top: 5px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.recent-item a {
+  text-decoration: none;
+  color:black;
+}
+
+.recent-item a:hover {
+  text-decoration: underline;
+}
+
+.recent-item a:active {
+  color: blue;
+}
+
+.submit-login {
+  position: relative;
+  top: 15%;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 0;
+  border-radius: 10px;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.submit-login:hover {
+  color: #fff;
+  background-color: rgba(0,0,0,0.9);
 }
