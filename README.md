@@ -125,7 +125,8 @@ MZ세대는 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=f
 
 
 **실제 사용 화면**
-<div style="display: flex; align-items: center;">
+
+<div style="display: flex; align-items: "center";>
     <img src="./img/news_example1.png" width="40%" alt="뉴스 예시 이미지1"/>
     <p style="margin: 0 40px;">요약을 원하는 뉴스 기사의 링크를 복사합니다.
     </p>
