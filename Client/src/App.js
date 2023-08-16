@@ -130,7 +130,7 @@ function App() {
 
   const handleSearch = async (link) => {
     try {
-      const response = await axios.post('YOUR_BACKEND_ENDPOINT_HERE', { link });
+      const response = await axios.post('127.0.0.1:8000/api/check_string/', { link });
       
       setSummaryTitle(response.data.title);
       setSummaryContent(response.data.content);
