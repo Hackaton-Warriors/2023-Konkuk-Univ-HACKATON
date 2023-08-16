@@ -134,8 +134,9 @@ MZ세대는 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=f
   <p style="margin: 0 40px;"> Enter or New Summary 버튼을 누르면
     AI가 제목과, 핵심내용만을 요약해 줍니다.</p>
   <p1> QnA with AI에서 "Q:제조일자가 없으면 세균 수 부적합이 나와?" 등의 기사와 관련된
-  궁금한 점을 질문합니다. 
-    AI는 사용자의 질문에 대한 적절한 해답을 드립니다. </p1>
+  궁금한 점을 질문합니다.</p1>
+  <p2> AI는 사용자의 질문에 대한 적절한 해답을 드립니다. 
+    </p2>
 </div>
 
 <div style="display: flex; align-items: center;">
