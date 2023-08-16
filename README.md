@@ -30,7 +30,7 @@
 
 ## About The Project
 
-![Screen](screen.png)
+![Main Screen](./images/screen.PNG)
 
 ![Login Box](login-box.png)
 
