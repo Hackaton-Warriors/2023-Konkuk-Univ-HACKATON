@@ -55,6 +55,27 @@ MZ세대를 위한 쉽고 편리한 뉴스 요약 서비스
 **WebSite Logo**
 </div>
 
+
+**"뉴스에 덜 친숙한 MZ세대에게 사회적 이슈들에 대해 쉽게 접할 수 있도록 도움을 주고자 시작한 프로젝트입니다."**
+
+MZ세대는 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat&logo=Instagram&logoColor=white)](#)
+의 릴스, [![YouTube](https://img.shields.io/badge/-YouTube-FF0000?style=flat&logo=YouTube&logoColor=white)](#)
+의 쇼츠 등 짧지만 핵심적인 내용을 추구하는 경향이 있습니다.
+
+하지만 뉴스 기사들은 내용이 길고, 핵심 내용뿐만 아니라 부가적인 내용도 적혀있어서 MZ세대가 뉴스를 친숙하게 여기기엔 이러한 큰 장벽이 존재합니다.
+
+따라서 저희는 MZ세대의 mobile-friendly 한 장점을 활용하면서, 뉴스 내용을 핵심적인 내용으로 요약함으로써 MZ세대의 단점까지 보완해 주는 웹 사이트를 개발했습니다.
+
+- **간결하고 핵심적인 정보로 뉴스를 요약**
+  
+- **접근성이 좋아 사용하기 용이함**
+
+- **쉽고 빠르게 정보를 찾을 수 있음**
+
+저희 프로젝트명인 NEWS.ZIP의 이러한 특징들은 MZ세대의 단점을 보완해 주면서도, 장점을 부각해 주는 능력을 갖추고 있습니다.
+
+이번 프로젝트를 통하여 많은 MZ세대가 사회적 이슈에 좀 더 친근하게 다가가기를 염원합니다.
+
 ## How To Use
 
 1. [![Login](https://img.shields.io/badge/Log%20In-gray)](#) [![SignUp](https://img.shields.io/badge/Sign%20Up-gray)](#)
