@@ -36,7 +36,7 @@
 
 ![Logo](logo.png)
 
-##**News.Zip**
+## **News.Zip**
 - **Description**: MZ세대를 위한 개인적이고 빠른 뉴스 요약 서비스
 - **Features**:
   - 간결하고 중요한 정보로 뉴스를 요약
