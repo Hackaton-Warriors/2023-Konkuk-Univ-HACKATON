@@ -1,5 +1,10 @@
 # 🗞️ '뉴스.zip' - 뉴스 요약 서비스
 
+
+![img](https://github.com/brave-people/Dev-Event/blob/master/static/title-v3-lg.png?raw=true)
+
+</div>
+<br />
 [![Build Status](https://img.shields.io/badge/status-Developing-green)](https://github.com/Hackaton-Warriors/2023-Konkuk-Univ-HACKATON/)
 
 <!-- ![License]() -->
@@ -8,7 +13,8 @@
 2023 건국대학교 해커톤 '해커톤 전사들' 팀 (김다연, 안준영, 이은찬, 임현성)
 
 
-프로젝트명 : MZ세대를 위한 쉽고 편리한 뉴스 요약 서비스
+프로젝트명 : <img src="./img/logo.png" alt="Logo" width="100" top="50"/>
+MZ세대를 위한 쉽고 편리한 뉴스 요약 서비스
 
 <!-- TABLE OF CONTENTS -->
 
