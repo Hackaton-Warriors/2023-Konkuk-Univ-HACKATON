@@ -1,4 +1,6 @@
 #-*-coding: utf-8-*-
+#-*-coding: cp949-*-
+#-*-coding: EUC-KR-*-
 
 from django.shortcuts import render
 
@@ -23,9 +25,19 @@ def check_string(request):
     data = request.data
     url = data.get('value')
     title, content = link(url)
+
+    try:
     
-    with open("./config/content.txt", "w") as f:
-        f.write(title + "\n" + content)
+        with open("./config/content.txt", "w") as f:
+            f.write(title + "\n" + content)
+    
+    except:
+        return Response(
+            {
+                "title" : "OOPS!",
+                "content" : "기사에 컴퓨터가 읽을 수 없는 특수문자가 포함되었어요.\n \
+                            아주 일부 뉴스에서 이런 오류가 생긴답니다 😢"
+            }, status=status.HTTP_200_OK)
 
     short_content = model_(content)
     if len(short_content) == 0:

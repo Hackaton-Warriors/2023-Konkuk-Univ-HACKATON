@@ -1,3 +1,7 @@
+#-*-coding: utf-8-*-
+#-*-coding: cp949-*-
+#-*-coding: EUC-KR-*-
+
 from newspaper import Article
 import requests
 from bs4 import BeautifulSoup
