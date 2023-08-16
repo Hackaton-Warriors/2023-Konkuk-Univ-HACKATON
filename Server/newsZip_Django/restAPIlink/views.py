@@ -1,3 +1,5 @@
+#-*-coding: utf-8-*-
+
 from django.shortcuts import render
 
 import sys
@@ -26,11 +28,21 @@ def check_string(request):
         f.write(title + "\n" + content)
 
     short_content = model_(content)
-    return Response(
-        {
-            "title" : title,
-            "content" : short_content
-        }, status=status.HTTP_200_OK)
+    if len(short_content) == 0:
+        return Response(
+            {
+                "title" : "OOPS!",
+                "content" : "AI가 제대로 학습하지 못했어요.\n \
+                            아주 일부 뉴스에서 이런 오류가 생긴답니다 😢"
+            }, status=status.HTTP_200_OK)
+    
+        
+    else:
+        return Response(
+            {
+                "title" : title,
+                "content" : short_content
+            }, status=status.HTTP_200_OK)
     
 
 
