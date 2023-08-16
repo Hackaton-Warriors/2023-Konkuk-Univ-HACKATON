@@ -110,11 +110,16 @@ MZ세대를 위한 쉽고 편리한 뉴스 요약 서비스
 
 ## License
 
-<!-- References -->
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 ## References
 
-<!-- Contributors -->
+- [Book] **Do it! 파이썬 웹 개발부터 배포까지! 점프 투 장고** - 박응용 지음
+- [Book] **리액트를 다루는 기술 개정판** - 김민준 지음
+- [Repo] [**KoBART :: SKT-AI**](https://github.com/SKT-AI/KoBART)
+- [Repo] [**KoBART-summarization :: seujung**](https://github.com/seujung/KoBART-summarization)
+- [Data] [문서요약 텍스트](https://www.aihub.or.kr/aihubdata/data/)
 
 ## Contributors
 

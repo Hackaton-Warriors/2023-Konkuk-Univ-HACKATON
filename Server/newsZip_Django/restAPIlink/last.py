@@ -15,18 +15,18 @@ def link(url):
         soup = BeautifulSoup(html, "html.parser")
         #print(soup)
 
-        print("[제목]")
+        # print("[제목]")
         target_element = soup.select_one('h2>span')  # h2 태그 아래의 span 태그 선택, 제목을 추출
         if target_element:
             text_content = target_element.get_text().strip()  # 제목을 추출함
-            return text_content
+            #return text_content
 
-        #articles = soup.select('article')           #기사 본문 내용을 추출
+        articles = soup.select('article')           #기사 본문 내용을 추출
 
-        #print("\n[내용]\n")
-        #for article in articles:
-        #    article_text = article.get_text().strip()  # 요소 내 텍스트 추출
-         #   print(article_text)
+        # print("\n[내용]\n")
+        for article in articles:
+            article_text = article.get_text().strip()  # 요소 내 텍스트 추출
+            return text_content, article_text              #제목과 내용을 추출함
 
     else :
         html = requests.get(url, headers=headers).text          #naver기사가 아니라면 newspaper3k 패키지를 사용해 제목 기사 추출
@@ -38,11 +38,11 @@ def link(url):
         # 기사 제목을 출력
         # print('기사 제목:')
         #text_content = article.title
-        return article.title
+        #return article.title
         
 
-        # 기사 내용을 출력
-        # print('기사 내용:')
+         #기사 내용을 출력
+        #print('기사 내용:')
 
-        #article_text = article.text
-        #print(article.text)
+        article_text = article.text
+        return article.title, article.text                  #제목과 내용을 추출함

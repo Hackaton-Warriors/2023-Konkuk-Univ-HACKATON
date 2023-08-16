@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 
+const IMAGES = {
+  BACKGROUND_1: 'sample_back1.png',
+  BACKGROUND_2: 'sample_back2.png',
+  BACKGROUND_3: 'sample_back3.png',
+  BACKGROUND_4: 'sample_back4.png'
+};
+
 function HiddenSummary({ title, content, closeSummary }) {
   return (
     <div className="hidden-summary">
       <div className="hidden-summary-content">
-        <p style={{fontSize:"30px", fontWeight:"bold"}}>{title}</p>
-        <p style={{fontSize:"20px"}}>{content}</p>
+        <p style={{fontSize:"40px", fontWeight:"bold"}}>{title}</p>
+        <p style={{fontSize:"25px"}}>{content}</p>
       </div>
       <button className="close-summary-button" onClick={closeSummary}>Close</button>
     </div>
@@ -18,7 +25,7 @@ function HiddenRecent({ recentUrls, closeRecent }) {
   return (
     <div className="hidden-recent">
       <div className="hidden-recent-content">
-        <p>Hidden recent Content</p>
+        <p style={{padding:"1%", margin:"0.2%"}}>Recent Search Histories</p>
         <div className="recent-list">
           {recentUrls.slice(0).reverse().map((url, index) => (
             <a key={index} className="recent-item" target='_blank' href={url}>
@@ -84,8 +91,33 @@ function HiddenQnA({ closeQnA }) {
   );
 }
 
-
-
+function SettingsBox({ changeBackground, hideSettingsModal }) {
+  return (
+    <div className="settings-screen">
+      <div className="settings-modal">
+        <div className="settings-box">
+          <p style={{fontSize:"60px", fontWeight:"bold", margin:"2%"}}>Settings</p>         
+          <p style={{fontSize:"30px", margin:"1%"}}>Choose a background</p>
+          <div className="bg-box">
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_1)}>
+                <img src={IMAGES.BACKGROUND_1} alt="bg1" />
+            </button>
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_2)}>
+                <img src={IMAGES.BACKGROUND_2} alt="bg2" />
+            </button>
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_3)}>
+                <img src={IMAGES.BACKGROUND_3} alt="bg3" />
+            </button>
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_4)}>
+                <img src={IMAGES.BACKGROUND_4} alt="bg4" />
+            </button>
+            </div>
+            <button className="close-settings" onClick={hideSettingsModal}>Close</button>
+          </div>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   const [hiddenSummaryVisible, setHiddenSummaryVisible] = useState(false);
@@ -96,7 +128,9 @@ function App() {
   const [hiddenUserInfoVisible, setHiddenUserInfoVisible] = useState(false);
   const [summaryTitle, setSummaryTitle] = useState('');
   const [summaryContent, setSummaryContent] = useState('');
-  const [recentUrls, setRecentUrls] = useState(["url1", "url2", "url3", "url4", "url5"]);
+  const [recentUrls, setRecentUrls] = useState([undefined, undefined, undefined, undefined, undefined]);
+  const [backgroundImage, setBackgroundImage] = useState('sample_back4.png'); // 기본 배경 이미지
+  const [showSettings, setShowSettings] = useState(false); // 설정 상자의 가시성
   // 이벤트 핸들러 함수들
   const openHiddenSummary = () => {
     setHiddenSummaryVisible(true);
@@ -150,7 +184,7 @@ function App() {
   
   const scrollPageQnA = () => {
     window.scrollTo({
-      top: window.innerHeight * 0.4, // 화면 높이의 30% 아래로 스크롤
+      top: window.innerHeight * 0.38,
       behavior: 'smooth'
     });
   };
@@ -165,8 +199,6 @@ function App() {
       console.error("Error fetching data:", error);
     }
   };
-  
-  
 
   const scrollPageTop = () => {
     window.scrollTo({
@@ -174,8 +206,24 @@ function App() {
       behavior: 'smooth'
     });
   };
+
+  const showSettingsModal = () => {
+    setShowSettings(true);
+  };
+  
+  const hideSettingsModal = () => {
+    setShowSettings(false);
+  };
+
+  const changeBackground = (image) => {
+    setBackgroundImage(image);
+    hideSettingsModal();
+  };
+
+
   return (
-    <div className="My02">
+    
+    <div className="My02" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="top-bar">
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <button style={{ visibility: isLoggedIn ? 'hidden' : 'visible' }} onClick={showLoginModal} className="login-btn">Login</button>
@@ -194,7 +242,7 @@ function App() {
               const updatedUrls = [...recentUrls, url];
               updatedUrls.shift();
               setRecentUrls(updatedUrls);
-              handleSearch(clickEvent, "http://127.0.0.1:8000/api/check_string/");
+              handleSearch("http://127.0.0.1:8000/api/check_string/");
             }}
             type="button"
           >
@@ -206,8 +254,9 @@ function App() {
         <div className="menu-container">
           <span className="menu1" onClick={() => {openHiddenSummary(); scrollPageTop();}}>News Summary</span>
           <span className="menu2" onClick={() => { openHiddenQnA(); scrollPageQnA();}}>QnA with AI</span>
-          <span className="menu3" onClick={() => {openHiddenRecent(); scrollPageTop();}}>Recent Summaries</span>
-          <span className="menu4">Settings</span>
+          <span className="menu3" onClick={() => {openHiddenRecent(); scrollPageTop();}}>Search Histories</span>
+          <span className="menu4" onClick={showSettingsModal}>Settings</span>
+
         </div>
         
         <div className="foot-container">
@@ -226,6 +275,7 @@ function App() {
         {hiddenSummaryVisible && <HiddenSummary title={summaryTitle} content={summaryContent} closeSummary={closeHiddenSummary} />}
         {hiddenQnAVisible && <HiddenQnA closeQnA={closeHiddenQnA} />}
         {hiddenRecentVisible && <HiddenRecent recentUrls={recentUrls} closeRecent={closeHiddenRecent} />}
+        {showSettings && <SettingsBox changeBackground={changeBackground} hideSettingsModal={hideSettingsModal} />}
       </div>
       {showLogin && (
         <div className="login-screen">
