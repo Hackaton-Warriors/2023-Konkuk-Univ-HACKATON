@@ -242,7 +242,7 @@ function App() {
               const updatedUrls = [...recentUrls, url];
               updatedUrls.shift();
               setRecentUrls(updatedUrls);
-              handleSearch(clickEvent, "http://127.0.0.1:8000/api/check_string/");
+              handleSearch("http://127.0.0.1:8000/api/check_string/");
             }}
             type="button"
           >
