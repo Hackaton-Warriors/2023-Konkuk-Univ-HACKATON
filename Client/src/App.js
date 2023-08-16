@@ -14,6 +14,28 @@ function HiddenSummary({ title, content, closeSummary }) {
   );
 }
 
+function SettingsBox({ changeBackground, hideSettingsModal }) {
+  return (
+    <div className="settings-screen">
+      <div className="settings-modal">
+        <div className="settings-box">
+          <div className="settings-header">Settings</div>
+          <div className="settings-form">
+            <h3>Choose a background:</h3>
+            <div>
+              <img src="image1.jpg" alt="Background 1" onClick={() => changeBackground('image1.jpg')} />
+              <img src="image2.jpg" alt="Background 2" onClick={() => changeBackground('image2.jpg')} />
+              <img src="image3.jpg" alt="Background 3" onClick={() => changeBackground('image3.jpg')} />
+            </div>
+            <button className="close-settings" onClick={hideSettingsModal}>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 function HiddenQnA({ closeQnA }) {
   const [question, setQuestion] = useState(''); // 1. 질문 상태 추가
   const [answer, setAnswer] = useState('Answer will appear here.'); // 응답 상태 추가
@@ -104,7 +126,22 @@ function App() {
   const [hiddenUserInfoVisible, setHiddenUserInfoVisible] = useState(false);
   const [summaryTitle, setSummaryTitle] = useState('');
   const [summaryContent, setSummaryContent] = useState('');
+  const [backgroundImage, setBackgroundImage] = useState('default.jpg'); // 기본 배경 이미지
+  const [showSettings, setShowSettings] = useState(false); // 설정 상자의 가시성
 
+  const showSettingsModal = () => {
+    setShowSettings(true);
+  };
+  
+  const hideSettingsModal = () => {
+    setShowSettings(false);
+  };
+
+  const changeBackground = (image) => {
+    setBackgroundImage(image);
+    hideSettingsModal();
+  };
+  
   // 이벤트 핸들러 함수들
   const openHiddenSummary = () => {
     setHiddenSummaryVisible(true);
@@ -180,7 +217,7 @@ function App() {
   };
 
   return (
-    <div className="My02">
+    <div className="My02" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="top-bar">
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <button style={{ visibility: isLoggedIn ? 'hidden' : 'visible' }} onClick={showLoginModal} className="login-btn">Login</button>
@@ -201,7 +238,8 @@ function App() {
           <span className="menu1" onClick={() => {openHiddenSummary(); scrollPageTop();}}>News Summary</span>
           <span className="menu2" onClick={() => { openHiddenQnA(); scrollPageQnA();}}>QnA with AI</span>
           <span className="menu3" onClick={() => {openHiddenRecent(); scrollPageTop();}}>Recent Summaries</span>
-          <span className="menu4">Settings</span>
+          <span className="menu4" onClick={showSettingsModal}>Settings</span>
+
         </div>
         
         <div className="foot-container">
@@ -220,6 +258,7 @@ function App() {
         {hiddenSummaryVisible && <HiddenSummary title={summaryTitle} content={summaryContent} closeSummary={closeHiddenSummary} />}
         {hiddenQnAVisible && <HiddenQnA closeQnA={closeHiddenQnA} />}
         {hiddenRecentVisible && <HiddenRecent closeRecent={closeHiddenRecent} />}
+        {showSettings && <SettingsBox changeBackground={changeBackground} hideSettingsModal={hideSettingsModal} />}
       </div>
       {showLogin && (
         <div className="login-screen">
