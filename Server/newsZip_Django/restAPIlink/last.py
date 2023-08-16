@@ -15,7 +15,7 @@ def link(url):
         soup = BeautifulSoup(html, "html.parser")
         #print(soup)
 
-        print("[제목]")
+        # print("[제목]")
         target_element = soup.select_one('h2>span')  # h2 태그 아래의 span 태그 선택, 제목을 추출
         if target_element:
             text_content = target_element.get_text().strip()  # 제목을 추출함
@@ -23,7 +23,7 @@ def link(url):
 
         articles = soup.select('article')           #기사 본문 내용을 추출
 
-        print("\n[내용]\n")
+        # print("\n[내용]\n")
         for article in articles:
             article_text = article.get_text().strip()  # 요소 내 텍스트 추출
             return text_content, article_text              #제목과 내용을 추출함
