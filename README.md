@@ -1,12 +1,20 @@
 # 🗞️ '뉴스.zip' - 뉴스 요약 서비스
 
+
+![img](https://github.com/brave-people/Dev-Event/blob/master/static/title-v3-lg.png?raw=true)
+
+</div>
+<br />
 [![Build Status](https://img.shields.io/badge/status-Developing-green)](https://github.com/Hackaton-Warriors/2023-Konkuk-Univ-HACKATON/)
 
 <!-- ![License]() -->
+## <img src="https://cdn-icons-png.flaticon.com/128/7718/7718598.png" alt="Icon" width="30"/> 해커톤 전사들 <img src="https://cdn-icons-png.flaticon.com/128/7718/7718598.png" alt="Icon" width="30"/>
 
 2023 건국대학교 해커톤 '해커톤 전사들' 팀 (김다연, 안준영, 이은찬, 임현성)
 
-주제 : MZ세대
+
+프로젝트명 : <img src="./img/logo.png" alt="Logo" width="100" top="50"/>
+MZ세대를 위한 쉽고 편리한 뉴스 요약 서비스
 
 <!-- TABLE OF CONTENTS -->
 
@@ -28,11 +36,67 @@
 </details>
 <!-- ABOUT THE PROJECT -->
 
+
 ## About The Project
 
-### Built With
+<div align="center">
+<img src="./img/screen.PNG" alt="Main Screen" width="600" />
+  
+**Main Screen**
 
-<!-- USAGE EXAMPLES -->
+
+<img src="./img/loginbox.PNG" alt="Login Screen" width="600"/>
+
+**Login Screen**
+
+<img src="./img/logo.png" alt="Logo" width="200"/>
+
+**WebSite Logo**
+</div>
+
+## How To Use
+
+1. Log in, Sign up 버튼을 통해 로그인 및 회원가입을 합니다.
+
+2. 검색창에 요약을 원하는 뉴스 기사의 링크를 검색합니다.
+   
+3. 핵심적이고 간결하게 요약된 기사를 만나보실 수 있습니다.
+
+### Menu
+
+- **News Summary**: AI가 요약한 3~5줄의 뉴스기사가 뜹니다.
+  
+- **QnA with AI**: 페이지의 하단으로 이동하여 AI에게 질문할 수 있습니다.
+  
+- **Recent Summaries**: 사용자가 최근에 요약한 뉴스기사들을 불러옵니다.
+  
+- **Settings**: 배경화면 및 뭐 바꿀수 있다~~~~(나중에수정).
+
+
+## 서비스 소개: "News.Zip" <img src="https://cdn-icons-png.flaticon.com/128/6861/6861248.png" alt="Icon" width="29">
+
+
+
+- **Description**: MZ세대를 위한 개인적이고 빠른 뉴스 요약 서비스
+  
+- **Features**:
+  - 간결하고 중요한 정보로 뉴스를 요약
+    
+  - 접근성이 좋아 사용하기 용이
+    
+  - 편리함을 추구하며 모바일과 친숙하다는 특징을 가진 MZ 세대 겨냥
+    
+  - 쉽고 빠르게 필요한 정보를 빠르게 찾을 수 있다는 장점
+
+    
+### Built With
+| 역할                 | 종류                                                                                                                                                                                                              |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| front              | ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black)                                                                                                                |
+| back | ![Django](https://img.shields.io/badge/Django-092E20.svg?style=for-the-badge&logo=Django&logoColor=white)                                   |
+| Programming Language | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black) , ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) |
+| Data Fetching        | ![Data Fetching](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white)                                                                                                        |   
+
 
 ## Usage
 
@@ -40,7 +104,7 @@
 
 ## Roadmap
 
-<!-- LICENSE -->
+
 
 ## License
 
