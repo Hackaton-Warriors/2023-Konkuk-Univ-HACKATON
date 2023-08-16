@@ -13,8 +13,8 @@ function HiddenSummary({ title, content, closeSummary }) {
   return (
     <div className="hidden-summary">
       <div className="hidden-summary-content">
-        <p style={{fontSize:"40px", fontWeight:"bold"}}>{title}</p>
-        <p style={{fontSize:"25px"}}>{content}</p>
+        <p style={{fontSize:"36px", fontWeight:"bold", margin:"2% 0"}}>{title}</p>
+        <p style={{fontSize:"22px", margin:"2% 0%"}}>{content}</p>
       </div>
       <button className="close-summary-button" onClick={closeSummary}>Close</button>
     </div>
