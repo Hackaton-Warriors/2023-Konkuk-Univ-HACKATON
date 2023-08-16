@@ -93,7 +93,7 @@ MZ세대는 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=f
   
 - **Recent Summaries**: 사용자가 최근에 요약한 뉴스기사들을 불러옵니다.
   
-- **Settings**: 배경화면 및 뭐 바꿀수 있다~~~~(나중에수정).
+- **Settings**: 사용자가 원하는 배경 이미지를 선택하여 배경화면에 적용시킬 수 있습니다.
 
 
 ## 서비스 소개: "News.Zip" <img src="https://cdn-icons-png.flaticon.com/128/6861/6861248.png" alt="Icon" width="29">
@@ -123,7 +123,55 @@ MZ세대는 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=f
 
 ## Usage
 
-<!-- ROADMAP -->
+
+**실제 사용 화면**
+<div style="display: flex; align-items: center;">
+    <img src="./img/news_example1.png" width="40%" alt="뉴스 예시 이미지1"/>
+    <p style="margin: 0 40px;">요약을 원하는 뉴스 기사의 링크를 복사합니다.
+    </p>
+    <img src="./img/news_summary1.png" width="70%" alt="뉴스 요약 이미지1"/>
+  <p style="margin: 0 40px;"> Enter or New Summary 버튼을 누르면
+    AI가 제목과, 핵심내용만을 요약해 줍니다.</p>
+  <p1> QnA with AI에서 "Q:제조일자가 없으면 세균 수 부적합이 나와?" 등의 기사와 관련된
+  궁금한 점을 질문합니다. 
+    AI는 사용자의 질문에 대한 적절한 해답을 드립니다. </p1>
+</div>
+
+<div style="display: flex; align-items: center;">
+    <img src="./img/news_example2.png" width="40%" alt="뉴스 예시 이미지2"/>
+    <p style="margin: 0 40px;">이번에는 다른 사이트의 뉴스 기사를 요약해보겠습니다. 마찬가지로 링크를 복사해줍니다.
+    </p>
+    <img src="./img/news_summary2.png" width="70%" alt="뉴스 요약 이미지2"/>
+  <p style="margin: 0 40px;"> AI가 제목과, 핵심내용만을 잘 요약해 주는 것을 확인할 수 있습니다.</p>
+  <p1> 또한, QnA with AI에서 궁금한 점을 질문하면 마찬가지로 적절한 해답을 제시합니다. 
+   </p1>
+</div>
+<p>
+
+  
+
+**Recent Summaries**
+
+<p>
+앞서 요약한 뉴스들을 다시 보고 싶을 때, Recent Summaries 버튼을 누릅니다.</p>
+<img src="./img/recent_summaries.png" width="70%"/>
+<p1 style="margin: 0 40px;">최근에 요약한 순서대로 뉴스기사의 링크들이 기록됩니다
+    </p1>
+
+</p>
+<p>
+
+
+**Settings**
+<div style="display: flex; align-items: center;">
+    <img src="./img/Settings1.png" width="50%" />
+    <p style="margin: 0 40px;"> Settings 버튼을 누를 경우, 다양한 배경 이미지가 뜹니다.
+    </p>
+    <img src="./img/Settings2.png" width="50%" />
+  <p style="margin: 0 40px;"> 하나를 선택하여 누를 경우, 실제 배경화면에 적용이 가능합니다.</p>
+</div>
+</p>
+
 
 ## Roadmap
 
