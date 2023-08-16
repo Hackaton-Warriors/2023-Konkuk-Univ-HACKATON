@@ -176,6 +176,7 @@ MZ세대는 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=f
 ## Roadmap
 
 <img src="./img/roadmap.jpg"/>
+<img src="./img/roadmap_back.jpg"/>
 
 ## License
 
