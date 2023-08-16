@@ -30,11 +30,20 @@
 
 ## About The Project
 
-![Main Screen](./images/screen.PNG)
+<div align="center">
+<img src="./img/screen.PNG" alt="Main Screen" width="600" />
+  
+**Main Screen**
 
-![Login Box](login-box.png)
 
-![Logo](logo.png)
+<img src="./img/loginbox.PNG" alt="Login Screen" width="600"/>
+
+**Login Screen**
+
+<img src="./img/logo.png" alt="Logo" width="200"/>
+
+**WebSite Logo**
+</div>
 
 ## **서비스 소개: News.Zip**
 - **Description**: MZ세대를 위한 개인적이고 빠른 뉴스 요약 서비스
