@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 
+const IMAGES = {
+  BACKGROUND_1: 'sample_back1.png',
+  BACKGROUND_2: 'sample_back2.png',
+  BACKGROUND_3: 'sample_back3.png',
+};
+
+
 function HiddenSummary({ title, content, closeSummary }) {
   return (
     <div className="hidden-summary">
@@ -24,9 +31,17 @@ function SettingsBox({ changeBackground, hideSettingsModal }) {
           
             <h3>Choose a background:</h3>
             <div>
-              <img src="sample_back1.jpg" alt="배경1" onClick={() => changeBackground('sample_back1.jpg')} />
-              <img src="sample_back2.jpg" alt="배경2" onClick={() => changeBackground('sample_back2.jpg')} />
-              <img src="sample_back3.jpg" alt="배경3" onClick={() => changeBackground('sample_back3.jpg')} />
+            <button className="bg-btn" onClick={() => changeBackground("sample_back1.png")}>
+                <img src={"sample_back1.png"} alt="배경1" />
+            </button>
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_2)}>
+                <img src={IMAGES.BACKGROUND_2} alt="배경2" />
+            </button>
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_3)}>
+                <img src={IMAGES.BACKGROUND_3} alt="배경3" />
+            </button>
+
+
             </div>
             <button className="close-settings" onClick={hideSettingsModal}>Close</button>
           </div>
