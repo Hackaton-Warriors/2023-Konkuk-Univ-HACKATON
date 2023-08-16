@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 
+const IMAGES = {
+  BACKGROUND_1: 'sample_back1.png',
+  BACKGROUND_2: 'sample_back2.png',
+  BACKGROUND_3: 'sample_back3.png',
+};
+
+
 function HiddenSummary({ title, content, closeSummary }) {
   return (
     <div className="hidden-summary">
@@ -13,6 +20,37 @@ function HiddenSummary({ title, content, closeSummary }) {
     </div>
   );
 }
+
+function SettingsBox({ changeBackground, hideSettingsModal }) {
+  return (
+    <div className="settings-screen">
+      <div className="settings-modal">
+        <div className="settings-box">
+        <div className="settings-form">
+          <div className="settings-header">Settings</div>
+          
+            <h3>Choose a background:</h3>
+            <div>
+            <button className="bg-btn" onClick={() => changeBackground("sample_back1.png")}>
+                <img src={"sample_back1.png"} alt="배경1" />
+            </button>
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_2)}>
+                <img src={IMAGES.BACKGROUND_2} alt="배경2" />
+            </button>
+            <button className="bg-btn" onClick={() => changeBackground(IMAGES.BACKGROUND_3)}>
+                <img src={IMAGES.BACKGROUND_3} alt="배경3" />
+            </button>
+
+
+            </div>
+            <button className="close-settings" onClick={hideSettingsModal}>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 function HiddenQnA({ closeQnA }) {
   const [question, setQuestion] = useState(''); // 1. 질문 상태 추가
@@ -104,7 +142,22 @@ function App() {
   const [hiddenUserInfoVisible, setHiddenUserInfoVisible] = useState(false);
   const [summaryTitle, setSummaryTitle] = useState('');
   const [summaryContent, setSummaryContent] = useState('');
+  const [backgroundImage, setBackgroundImage] = useState('Searchs_006.png'); // 기본 배경 이미지
+  const [showSettings, setShowSettings] = useState(false); // 설정 상자의 가시성
 
+  const showSettingsModal = () => {
+    setShowSettings(true);
+  };
+  
+  const hideSettingsModal = () => {
+    setShowSettings(false);
+  };
+
+  const changeBackground = (image) => {
+    setBackgroundImage(image);
+    hideSettingsModal();
+  };
+  
   // 이벤트 핸들러 함수들
   const openHiddenSummary = () => {
     setHiddenSummaryVisible(true);
@@ -180,7 +233,7 @@ function App() {
   };
 
   return (
-    <div className="My02">
+    <div className="My02" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="top-bar">
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <button style={{ visibility: isLoggedIn ? 'hidden' : 'visible' }} onClick={showLoginModal} className="login-btn">Login</button>
@@ -201,7 +254,8 @@ function App() {
           <span className="menu1" onClick={() => {openHiddenSummary(); scrollPageTop();}}>News Summary</span>
           <span className="menu2" onClick={() => { openHiddenQnA(); scrollPageQnA();}}>QnA with AI</span>
           <span className="menu3" onClick={() => {openHiddenRecent(); scrollPageTop();}}>Recent Summaries</span>
-          <span className="menu4">Settings</span>
+          <span className="menu4" onClick={showSettingsModal}>Settings</span>
+
         </div>
         
         <div className="foot-container">
@@ -220,6 +274,7 @@ function App() {
         {hiddenSummaryVisible && <HiddenSummary title={summaryTitle} content={summaryContent} closeSummary={closeHiddenSummary} />}
         {hiddenQnAVisible && <HiddenQnA closeQnA={closeHiddenQnA} />}
         {hiddenRecentVisible && <HiddenRecent closeRecent={closeHiddenRecent} />}
+        {showSettings && <SettingsBox changeBackground={changeBackground} hideSettingsModal={hideSettingsModal} />}
       </div>
       {showLogin && (
         <div className="login-screen">
