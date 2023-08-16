@@ -110,7 +110,8 @@ MZ세대를 위한 쉽고 편리한 뉴스 요약 서비스
 
 ## License
 
-<!-- References -->
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 ## References
 
