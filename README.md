@@ -30,6 +30,19 @@
 
 ## About The Project
 
+![Screen](screen.png)
+
+![Login Box](login-box.png)
+
+![Logo](logo.png)
+
+**News.Zip**
+- **Description**: MZ세대를 위한 개인적이고 빠른 뉴스 요약 서비스
+- **Features**:
+  - 간결하고 중요한 정보로 뉴스를 요약
+  - 접근성이 좋아 사용하기 용이
+  - 편리함을 추구하며 모바일과 친숙하다는 특징을 가진 MZ 세대 겨냥
+  - 쉽고 빠르게 필요한 정보를 빠르게 찾을 수 있다는 장점
 ### Built With
 
 <!-- USAGE EXAMPLES -->
