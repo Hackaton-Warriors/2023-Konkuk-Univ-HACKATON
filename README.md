@@ -1,7 +1,7 @@
+<img src="./img/banner.png" alt="Main Screen" />
+
 # 🗞️ '뉴스.zip' - 뉴스 요약 서비스
 
-
-<img src="./img/banner.png" alt="Main Screen" />
 
 </div>
 <br>
