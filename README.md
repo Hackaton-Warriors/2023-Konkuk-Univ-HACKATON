@@ -44,11 +44,10 @@
   - 편리함을 추구하며 모바일과 친숙하다는 특징을 가진 MZ 세대 겨냥
   - 쉽고 빠르게 필요한 정보를 빠르게 찾을 수 있다는 장점
 ### Built With
-**프론트**: 
-* [![React][React.js]][React-url]
-  
-**벡**: 
-* [![Django][Django][Django-url]
+| 역할                 | 종류                                                                                                                                                                                                              |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| front              | ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black)                                                                                                                |
+| back | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)                                                                                             |
 
 ## Usage
 
