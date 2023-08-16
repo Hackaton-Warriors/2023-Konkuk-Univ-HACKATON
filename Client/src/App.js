@@ -117,12 +117,19 @@ function App() {
     setIsLoggedIn(true);
   }
   
-  const scrollPageBottom = () => {
+  const scrollPageQnA = () => {
     window.scrollTo({
       top: window.innerHeight * 0.4, // 화면 높이의 30% 아래로 스크롤
       behavior: 'smooth'
     });
-  };  
+  };
+  
+  const scrollPageTop = () => {
+    window.scrollTo({
+      top: window.innerHeight * 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="My02">
@@ -143,9 +150,9 @@ function App() {
           </button>
         </div>
         <div className="menu-container">
-          <span className="menu1" onClick={openHiddenSummary}>News Summary</span>
-          <span className="menu2" onClick={() => { openHiddenQnA(); scrollPageBottom();}}>QnA with AI</span>
-          <span className="menu3" onClick={openHiddenRecent}>Recent Summaries</span>
+          <span className="menu1" onClick={() => {openHiddenSummary(); scrollPageTop();}}>News Summary</span>
+          <span className="menu2" onClick={() => { openHiddenQnA(); scrollPageQnA();}}>QnA with AI</span>
+          <span className="menu3" onClick={() => {openHiddenRecent(); scrollPageTop();}}>Recent Summaries</span>
           <span className="menu4">Settings</span>
         </div>
         
