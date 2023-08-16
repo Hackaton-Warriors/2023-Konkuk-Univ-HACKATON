@@ -4,7 +4,7 @@ from django.test import TestCase
 
 from last import link
 
-제목, 내용 = link("https://n.news.naver.com/article/021/0002588743?cds=news_media_pc")
+제목, 내용 = link("https://v.daum.net/v/20230816163252664")
 print("이것은 제목입니다")
 print(제목)
 
