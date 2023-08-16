@@ -1,10 +1,11 @@
 # 🗞️ '뉴스.zip' - 뉴스 요약 서비스
 
 
-![img](https://github.com/brave-people/Dev-Event/blob/master/static/title-v3-lg.png?raw=true)
+<img src="./img/banner.png" alt="Main Screen" />
 
 </div>
-<br />
+<br>
+
 [![Build Status](https://img.shields.io/badge/status-Developing-green)](https://github.com/Hackaton-Warriors/2023-Konkuk-Univ-HACKATON/)
 
 <!-- ![License]() -->
